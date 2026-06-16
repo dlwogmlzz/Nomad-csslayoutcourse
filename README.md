@@ -24,6 +24,17 @@ diplay: inline-block은 width와 height프로퍼티를 지원하고 옆으로 �
 
 ◆flexbox
 요소들을 가로/세로 정렬하거나 배치하는 레이아웃 도구.
+부모요소에 적용하여 그 안에 자식요소들을 정렬하는 방식.
+Flexbox를 사용하려면, 정렬하고 싶은 대상(자식들)을 감싸고 있는,
+부모 태그에 display:flex;를 선언해야 한다.
+
+부모가 결정하는 것 (주로 사용하는 속성들):
+
+flex-direction: 가로로 정렬할까? 세로로 정렬할까?(column / low)
+justify-content: 주축(주로 가로)으로 어떻게 정렬할까?(양옆으로? 중앙으로?)
+align-items: 교차축(주로 세로)으로 어떻게 정렬할까? (위/중간/아래?)
+gap: 자식들 사이의 간격은 얼마로 할까?
+
 
 
 ◆media query
