@@ -2,6 +2,26 @@ body {
     background-color: blueviolet;
 }
 
-h1 {
+/* 지금 first-child는 h1이기때문에 주석처리. */
+/* h1 {
     color: whitesmoke;
+} */
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: tomato;
+    /* display: inline; - width or height를 사용하면사라짐. */
+    /* display: block; */
+    display: inline-block;
+}
+
+.box:first-child {
+    /* display: block; */
+    margin-right: 25%;
+}
+
+.box:last-child {
+    /* display: block; */
+    margin-left: 25%;
 }
