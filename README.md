@@ -40,6 +40,27 @@ gap: 자식들 사이의 간격은 얼마로 할까?
 flex-direction
 
 
+flexbox의 axis(축)
+・main axis(주축, 수평)
+・cross axis(교차축, 수직)
+→　그 축들이 있는 위치는 flex container의 direction에 따라 달라진다.
+
+
 ◆media query
 css 디자인을 할때 하드코딩으로 맞을때 까지 조정하는 것보다 media query를 사용함.
 - 화면 크기 변화에 대응하며, 20%를 설정한다고 가정했을때 큰화면이든 작은화면이든 20%에 똑같이 맞춰서 표시됨.
+
+
+
+
+
+text-align: center vs justify-content: center의 차이
+1. text-align: center; (텍스트 정렬)
+╰ 이 속성은 블록 요소 안에 있는 '인라인 요소(글자, 이미지등)'를 정렬할 때 사용.
+
+2. justify-content: center; (박스 배치)
+╰ 이 속성은 Flexbox 레이아웃에서 사용하며, '박스들(아이템들)'을 배치할 때 사용.
+
+・적용 대상: display: flex;가 설정된 부모 요소에 설정한다!!
+・부모 박스 안에 들어있는 자식 요소(박스들)들을 가로축(기본값) 기준으로 중앙으로 정렬한다.
+・핵심!! 글자를 정렬하는 게 아니라, '덩어리(자식 박스)' 자체를 이동시켜서 중앙에 배치한다.
