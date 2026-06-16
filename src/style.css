@@ -9,11 +9,11 @@
     /* height: 100vh; - 부모 요소가 무엇이든 상관없이 무조건 현재 보고 있는 브라우저 창의 전체 높이에 영향. */
     height: 100vh;
 
-    /* flex-direction: column; */
-    gap: 10px;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
     /* 교차축(cross axis)을 따라 flex-item들을 정렬해줌. align-items */
-    align-items: center;
+    align-items: flex-end;
 }
 /* 
     ※만약에 box들이 height를 가지고 있지 않다면.. 

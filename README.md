@@ -45,6 +45,10 @@ flexbox의 axis(축)
 ・cross axis(교차축, 수직)
 →　그 축들이 있는 위치는 flex container의 direction에 따라 달라진다.
 
+flex container가 row의 flex direction을 가질 때,
+주축은 수평으로 왼쪽에서 오른쪽으로 이동하고,
+교차축은 수직으로 위에서 아래로 이동한다.
+
 
 ◆media query
 css 디자인을 할때 하드코딩으로 맞을때 까지 조정하는 것보다 media query를 사용함.
@@ -70,3 +74,11 @@ text-align: center vs justify-content: center의 차이
 1. 가로 정렬(justify)과 세로 정렬(align)을 한 번에 제어할 수 있고,
 2. 텍스트가 몇 줄이든 상관없이,
 3. 박스 크기가 변해도 항상 완벽하게 정중앙에 위치 시킬 수 있다.
+
+
+justify-content && align-items를 둘다 flex-start로 했을 때, 가로축과 세로축 둘다 처음이 왼쪽과 위에서 시작하기 때문에 이렇게 지정하면 왼쪽 위에 붙어서 표시됨..
+
+Flex Direction이 row일때, 주축은 가로, column일 때는 세로.
+
+Flex Direction이 row일때, 교차축은 세로(세로로움직임.), column일 때는 가로(가로로움직임.)
+
