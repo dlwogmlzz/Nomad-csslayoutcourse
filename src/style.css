@@ -8,11 +8,11 @@
     display: flex;
     height: 100vh;
     justify-content: center;
-    flex-flow: row nowrap;
+    /* flex-flow: row nowrap; */
 }
 
 .box {
-    height: 200px;
+    height: 400px;
     color: white;
     font-size: 36px;
     display: flex;
