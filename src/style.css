@@ -52,6 +52,11 @@
     align-items: center;
 }
 
+/* nth란? n번째라는 뜻.. ()괄호안에 번호를 매겨서 몇번째 자식인지 지정할수 있음. */
+.box:nth-child(2) {
+    background-color: blueviolet;
+}
+
 .box:first-child {
     align-self: flex-start;
 }
