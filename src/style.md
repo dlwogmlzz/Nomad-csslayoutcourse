@@ -107,6 +107,20 @@ flex container가 row의 flex direction을 가질 때,
 주축은 수평으로 왼쪽에서 오른쪽으로 이동하고,
 교차축은 수직으로 위에서 아래로 이동한다.
 
+flex박스의 규칙은 자식들이 아닌 부모랑만 얘기하는 거 였는데,
+아주 드물게 부모뿐만이 아니고 자식과도 얘기할수 있음.
+
+flex 속성 중 부모에만 줬던 속성들..
+- 아이템 중앙 정렬 관련: justify-content / align-item
+- row와 column의 gap지정 / row-gap && column-gap
+- align-content, flex-direction && flex-wrap
+
+◆flex 속성 중 자식들에 적용하는 속성들...
+★order속성..
+다른 자식들에게 상대적이다..
+
+
+
 
 ◆media query
 css 디자인을 할때 하드코딩으로 맞을때 까지 조정하는 것보다 media query를 사용함.
@@ -194,3 +208,7 @@ align-content는 항목들을 움직이지 않음. 라인을 움직임..
 row-gap / column-gap 따로 지정이 가능함.
 
 
+
+◆align-self
+이것도 역시 flex 자식 항목의 속성임. 교차축 정렬을 정할 수 있게 한다.
+하나의 자식에만 적용되는 align-items속성, 자식하나가 독립을 한다 생각하면 될듯.. 

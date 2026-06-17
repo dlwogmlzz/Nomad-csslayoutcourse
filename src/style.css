@@ -20,13 +20,13 @@
     /* height: 100vh; - 부모 요소가 무엇이든 상관없이 무조건 현재 보고 있는 브라우저 창의 전체 높이에 영향. */
     height: 100vh;
 
-    /* gap: 10px; */
-    row-gap: 10px;
-    column-gap: 20px;
-    
+    gap: 10px;
+    /* row-gap: 10px;
+    column-gap: 20px; */
+
     justify-content: center;
     /* 교차축(cross axis)을 따라 flex-item들을 정렬해줌. align-items */
-    align-items: flex-start;
+    align-items: center;
     
     /* flex-direction: row; */
     /* flex-wrap: wrap; */
@@ -34,7 +34,7 @@
     flex-flow: row wrap;
     /* box들의 중앙 여백 조절 */
     /* align-content: space-evenly; - 균열한 간격유지 */
-    align-content: center;
+    /* align-content: flex-start; */
 }
 /* 
     ※만약에 box들이 height를 가지고 있지 않다면.. 
@@ -50,4 +50,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.box:first-child {
+    align-self: flex-start;
+}
+
+.box:last-child {
+    align-self: flex-end;
 }
