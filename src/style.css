@@ -1,3 +1,11 @@
+/* 모든 요소의 마진과 패딩을 제거. */
+* {
+    margin: 0;
+    padding: 0;
+    /* 내가 지정한 width와 height안에 padding과 border를 다 포함하겠다는 뜻. */
+    box-sizing: border-box;
+}
+
 .father {
     display: flex;
     /* flex container의 높이가 화면의 높이와 같게 함. */
