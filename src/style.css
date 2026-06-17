@@ -24,20 +24,20 @@
 .box:first-child {
     background-color: tomato;
     flex-grow: 1;
-    /* 화면 줄이면 이거 먼저 찌그러짐1 */
+    /* 화면 줄이면 안찌그러짐(0) */
     flex-shrink: 0;
 }
 
 .box:nth-child(2) {
     background-color: greenyellow;
     flex-grow: 2;
-    /* 화면 줄이면 이것만 안찌그러짐. */
+    /* 화면 줄이면 이것만 찌그러짐. */
     flex-shrink: 1;
 }
 
 .box:last-child {
     background-color: teal;
     flex-grow: 1;
-    /* 화면 줄이면 tomato다음 찌그러짐2 */
+    /* 화면 줄이면 안찌그러짐(0) */
     flex-shrink: 0;
 }
