@@ -1,50 +1,18 @@
-/* 모든 요소의 마진과 패딩을 제거. */
-
 * {
-    /* margin: 0;
-    padding: 0; */
-    /* 내가 지정한 width와 height안에 padding과 border를 다 포함하겠다는 뜻. */
-    /* 총 너비가 200px인 경우, 기존 150px의   */
-    /* 레이아웃 계산이 쉬워진다. */
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .father {
     display: flex;
-    /* flex container의 높이가 화면의 높이와 같게 함. */
-    /* vh - 보여지는 화면(브라우저)의 전체높이를 기준으로 하는 단위... */
-    
-    /* height: 100%; - 부모 요소의 높이에 영향. */
-    /* height: 100%; */
-
-    /* height: 100vh; - 부모 요소가 무엇이든 상관없이 무조건 현재 보고 있는 브라우저 창의 전체 높이에 영향. */
     height: 100vh;
-
-    gap: 10px;
-    /* row-gap: 10px;
-    column-gap: 20px; */
-
     justify-content: center;
-    /* 교차축(cross axis)을 따라 flex-item들을 정렬해줌. align-items */
-    align-items: center;
-    
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
-
     flex-flow: row wrap;
-    /* box들의 중앙 여백 조절 */
-    /* align-content: space-evenly; - 균열한 간격유지 */
-    /* align-content: flex-start; */
 }
-/* 
-    ※만약에 box들이 height를 가지고 있지 않다면.. 
-    부모요소인 father에 「align-item: stretch」를 해주면 전체 화면에 box를 길게 표시함....
-*/
 
 .box {
-    width: 200px;
     height: 200px;
-    background-color: tomato;
     color: white;
     font-size: 36px;
     display: flex;
@@ -52,15 +20,12 @@
     align-items: center;
 }
 
-/* nth란? n번째라는 뜻.. ()괄호안에 번호를 매겨서 몇번째 자식인지 지정할수 있음. */
-.box:nth-child(2) {
-    background-color: blueviolet;
-}
-
 .box:first-child {
-    align-self: flex-start;
+    background-color: tomato;
+    flex-grow: 1;
 }
 
 .box:last-child {
-    align-self: flex-end;
+    background-color: teal;
+    flex-grow: 2;
 }
