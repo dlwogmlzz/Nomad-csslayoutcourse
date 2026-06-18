@@ -4,8 +4,9 @@
     /* grid-template */
     /* 2행 2열의 총 4칸 격자 구조를 만드는 설정. */
     /* 열너비 행높이.. */
-    grid-template-columns: 100px 200px 300px;
-    grid-template-rows: 200px 100px;
+    /* Line Names */
+    grid-template-columns: [cucumber] 100px [potato] 200px [banana] 300px [brocoli];
+    grid-template-rows: [korea] 200px [thailand] 100px [america];
     gap: 10px;
 }
 
@@ -21,8 +22,10 @@
 .child:first-child {
     /* grid-row-start: 1;   
     grid-row-end: 3 or -1; 여기서는 3이 끝, 아니면 그냥 -1로 끝까지 */
+    
+    /* 위에서 지정한[이름]으로 값을 지정하는 것이 가능하다. */
     /* 위 코드를 한번에 가능. */
-    grid-row: 1 / -1;
+    grid-row: korea / america;
 }
 
 .child:last-child {
@@ -31,5 +34,5 @@
     /* grid-column-start: 2;   
     grid-column-end: -1; */
     /* 위 코드를 한번에 가능. */
-    grid-column: 2 / -1;
+    grid-column: potato / brocoli;
 }
