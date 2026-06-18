@@ -1,0 +1,19 @@
+.father {
+    /* 바둑판, 격자 무늬로 */
+    display: grid;
+    /* grid-template */
+    /* 2행 2열의 총 4칸 격자 구조를 만드는 설정. */
+    /* 행높이 열너비.. */
+    grid-template-columns: 100px 200px 300px;
+    grid-template-rows: 200px 100px;
+    gap: 10px;
+}
+
+.child {
+    background-color: chartreuse;
+    display: flex;
+    color: white;
+    font-size: 28px;
+    align-items: center;
+    justify-content: center;
+}
