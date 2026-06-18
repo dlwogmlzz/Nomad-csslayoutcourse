@@ -17,3 +17,19 @@
     align-items: center;
     justify-content: center;
 }
+
+.child:first-child {
+    /* grid-row-start: 1;   
+    grid-row-end: 3 or -1; 여기서는 3이 끝, 아니면 그냥 -1로 끝까지 */
+    /* 위 코드를 한번에 가능. */
+    grid-row: 1 / -1;
+}
+
+.child:last-child {
+    /* -1은 마지막 라인을 뜻함. */
+    background-color: coral;
+    /* grid-column-start: 2;   
+    grid-column-end: -1; */
+    /* 위 코드를 한번에 가능. */
+    grid-column: 2 / -1;
+}
