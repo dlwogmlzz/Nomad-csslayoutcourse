@@ -9,7 +9,7 @@
     height: 100vh;
     justify-content: center;
     /* flex-flow: row nowrap; */
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .box {
@@ -30,7 +30,7 @@
     /* flex-basis: 500px; */
     /* flex-shrink: 0; */
     /* flex하나로 grow shrink basis를 한번에 지정할 수 있다. */
-    flex: 0 1 500px;
+    flex: 1 1 500px;
 }
 
 .box:last-child {
