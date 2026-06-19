@@ -4,3 +4,6 @@
 박스 길이 조정*(2번부터 4번까지 표시)
 grid-column-start: 2;
 grid-column-end: 4;
+
+
+fr유닛.
