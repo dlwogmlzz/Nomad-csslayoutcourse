@@ -18,13 +18,34 @@ body {
   grid-auto-columns: 1fr;
   /* grid-auto-flow 기본값으로 준비되지 않은 경우 새 행을 변경함. */
   grid-auto-flow: column;
+  /* grid의 각 셀 내부 콘텐츠가 정렬되는 방식을 변경하는 몇가지 속성. */
+  /* 
+    stretch - 자식의 tomato색 박스가 그리드 셀의 모든 공간을 차지하도록 늘어남. 
+    부모에게 지정한 stretch는 자식이 width나 height를 가지지 않을 때 적용됨.
+  */
+/* justify-items: stretch;
+   align-items: stretch; 
+   위의 두코드를 동시에 적용하는 기법 - place-items */
+   place-items: end end;
 }
 
 .child {
+  width: 50px;
+  height: 50px;
   background-color: tomato;
   display: flex;
   color: white;
   font-size: 28px;
   align-items: center;
   justify-content: center;
+}
+
+/* 6번 박스만 이동시키고 싶을때, align&justify-self를 사용함. */
+.child:nth-child(6) {
+    background-color: chartreuse;
+    /* align-self: center;
+    justify-self: center; */
+    place-self: center;
+    grid-column: span 2;
+
 }
