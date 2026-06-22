@@ -4,19 +4,26 @@ body {
 }
 
 .father {
-  /* 1. align, justify, place content 모두 display: grid 컨테이너에 추가 공간이 없으면 정렬되지 않음. */
   display: grid;
   gap: 10px;
   height: 100vh;
-  /* 2. 추가 공간을 만드는 방법은 픽셀(px) 단위를 사용해야 함. */
-  /* fr을 쓰면 공간을 모두 차지하니까 여유 공간이 없음. */
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(2, 100px);
-  background-color: lightblue;
-  /* 3. 셀을 그룹으로 해서 가로, 세로 정렬. */
-  /* justify-content: center;
-  align-content: center; */
-  place-content: start end;
+  /* 내용물의 사이즈에 따라 열 크기를 조절할 수 있는 키워드(max-content)
+     max-content 두번째 열을 콘텐츠가 필요한 만큼 크게 만들도록 그리드에 지시. */
+  /* grid-template-columns: 1fr min-content or max-content 1fr; */
+
+  /* grid-template-columns: 1fr min-content 1fr; */
+
+  /* 
+    minmax() - 행이나 열의 최소 크기를 지정할 수 있다. 
+    예를 들어,
+    250px, 1fr를 넣으면 최대값이 1fr로 공간이 있을때 꽉 채우고,
+    작아지면 250px까지 줄어들도록...
+    ※repeat() 안에서도 사용가능..
+  */
+
+  /* grid-template-columns: 1fr minmax(250px, 1fr) 1fr; */
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+
 }
 
 .child {
