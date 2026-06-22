@@ -2,27 +2,21 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
+/* 반응형 웹 사이트를 만들기 위한 반응형 그리드를 만드는 방법. 2가지 키워드(autofit / autofill) */
 .father {
   display: grid;
   gap: 10px;
   height: 100vh;
-  /* 내용물의 사이즈에 따라 열 크기를 조절할 수 있는 키워드(max-content)
-     max-content 두번째 열을 콘텐츠가 필요한 만큼 크게 만들도록 그리드에 지시. */
-  /* grid-template-columns: 1fr min-content or max-content 1fr; */
-
-  /* grid-template-columns: 1fr min-content 1fr; */
+  /* grid-template-columns: repeat(3, minmax(300px, 1fr))   ; */
 
   /* 
-    minmax() - 행이나 열의 최소 크기를 지정할 수 있다. 
-    예를 들어,
-    250px, 1fr를 넣으면 최대값이 1fr로 공간이 있을때 꽉 채우고,
-    작아지면 250px까지 줄어들도록...
-    ※repeat() 안에서도 사용가능..
+    auto-fill - 동적으로 열의 갯수를 조절. 크기는 300px에서 1fr까지 
+    auto-fit도 동적으로 열 개수를 가지는 반응형 레이아웃을 만들어 주는건 비슷하지만, 
+    차이점은 여분의 공간이 있을때 나타나는데, auto-fit은 HTML에 있는 태그를 표시시키고, 빈열을 합쳐서 표시함.
+    auto-fill은 내용물이 있든 없든 지정한 크기, 사이즈에 맞는 열을 최대한 많이 만듦.
   */
-
-  /* grid-template-columns: 1fr minmax(250px, 1fr) 1fr; */
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  
 
 }
 
