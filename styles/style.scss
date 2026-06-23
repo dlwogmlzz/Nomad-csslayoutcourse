@@ -3,27 +3,28 @@ body {
   padding: 60px;
 }
 
+// @mixin 기법 사용.
+
 /* @extend 규칙 */
-%alert {
+@mixin alert($bgColor, $borderColor) {
+  background-color: $bgColor;
+
   /* 1. 공통코드를 만듦. */
   margin: 10px;
   padding: 10px 20px;
   border-radius: 10px;
-  border: 1px dashed black; /* dashed - 점선생성. */
+  border: 1px dashed $borderColor; /* dashed - 점선생성. */
 }
 
 /* 2. @extend해줌. */
 .success {
-  @extend %alert;
-  background-color: chartreuse
-}
-
-.error {
-  @extend %alert;
-  background-color: crimson
+  @include alert(rgb(25, 226, 25), rgba(0, 0, 0, 0.808));
 }
 
 .warning {
-  @extend %alert;
-  background-color: dodgerblue;
+  @include alert(rgb(238, 119, 22), rgb(100, 94, 94));
+}
+
+.error {
+  @include alert(rgb(207, 18, 182), rgb(199, 218, 30));
 }
