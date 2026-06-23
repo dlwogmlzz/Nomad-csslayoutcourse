@@ -1,30 +1,46 @@
+// mixin으로 반응형 디자인 만들기.
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+
+@mixin smallDevice {
+  @media screen and (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin mediumDevice {
+  @media screen and (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin largeDevice {
+  @media screen and (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xlDevice {
+  @media screen and (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding: 60px;
-}
+  @include smallDevice {
+    background-color: blueviolet;
+  }
+  @include mediumDevice {
+    background-color: rgb(238, 22, 22);
+  }
 
-// @mixin 기법 사용.
+  @include largeDevice {
+    background-color: rgb(16, 175, 96);
+  }
 
-/* @extend 규칙 */
-@mixin alert($bgColor, $borderColor) {
-  background-color: $bgColor;
-
-  /* 1. 공통코드를 만듦. */
-  margin: 10px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 1px dashed $borderColor; /* dashed - 점선생성. */
-}
-
-/* 2. @extend해줌. */
-.success {
-  @include alert(rgb(25, 226, 25), rgba(0, 0, 0, 0.808));
-}
-
-.warning {
-  @include alert(rgb(238, 119, 22), rgb(100, 94, 94));
-}
-
-.error {
-  @include alert(rgb(207, 18, 182), rgb(199, 218, 30));
+  @include xlDevice {
+    background-color: rgb(224, 30, 160);
+  }
 }
