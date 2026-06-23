@@ -35,14 +35,14 @@ ul {
   }
 }
 
-li {
-  &:first-child {}
-  &:last-child {}
-  &.middle {}
-}
+// li {
+//   &:first-child {}
+//   &:last-child {}
+//   &.middle {}
+// }
 
-li:first-child {}
-li:last-child {}
-li.middle {}
+// li:first-child {}
+// li:last-child {}
+// li.middle {}
 
 
