@@ -1,0 +1,131 @@
+@import "./reset.scss";
+
+body {
+  background: #dce6d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.phone {
+  background-color: black;
+  border-radius: 50px;
+  height: 95%;
+  width: 420px;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  margin: 10px;
+  height: 50px; /* 버튼들이 들어갈 충분한 높이를 딱 고정 */
+  padding: 5px;
+  overflow-x: auto; /* scroll 대신 auto를 쓰면 내용이 넘칠 때만 스크롤이 생깁니다 */
+  overflow-y: overlay;
+  /* 파이어폭스용 */
+  scrollbar-width: none;
+
+  /* 크롬/사파리용 */
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &:hover {
+    scrollbar-width: thin; /* 파이어폭스: 스크롤바를 얇게 표시 */
+    &::-webkit-scrollbar {
+      display: block; /* 크롬/사파리: 스크롤바 보이기 */
+      height: 10px;    /* 스크롤바 높이 설정 */
+    }
+  }
+
+  .header__list {
+    display: flex;
+    gap: 10px;
+    color: white;
+    width: max-content; /* "내용물(콘텐츠)이 가진 본래의 최대 크기에 맞춤." */
+    
+    .header__list-item {
+      /* color는 색상, alpha(= opacity)는 불투명도를 나타냄. */
+      border: 1px solid rgba($color: #fff, $alpha: 0.5);
+      padding: 10px;
+      border-radius: 20px;
+    }
+
+    .header__list-item--inverted {
+      background-color: whitesmoke;
+      color: black;
+    }
+  }
+}
+
+.cards {
+  // margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  .cards__card {
+    background-color: white;
+    padding: 10px; /* 위아래(20px) 좌우(10px) */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: space-between;
+
+    .card__title {
+      font-size: 25px;
+    }
+
+    .card__footer {
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: 1px solid black;
+      }
+      .price{
+        background-color: rgb(16, 238, 27);
+      }
+      .length{
+        background-color: white;
+      } 
+    }
+
+    &:first-child {
+      background-color: #292d33;
+      border: 1px solid white;
+      .card__title {
+        color: white;
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: #f5f4ef;
+    }
+
+    &:nth-child(3) {
+      background-color: #f8fcB5;
+    }
+
+    &:nth-child(4) {
+      background-color: #b19ff6;
+    }
+
+    &:nth-child(5) {
+      background-color: #fed3d3;
+    }
+
+    &:nth-child(6) {
+      background-color: #d0fedf;
+    }
+
+    &:nth-child(3n) { /* 3n - 3번째 자식 마다? 3 6 9 ... */
+      grid-column: span 2;
+    }
+  }
+}
