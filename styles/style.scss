@@ -24,6 +24,9 @@ body {
         text-align: center;
         font-weight: 300;
         font-size: 12px;
+        a {
+          text-decoration: none;
+        }
         &:nth-child(6) {
           text-transform: uppercase;
           font-weight: bold;
@@ -68,6 +71,35 @@ body {
     grid-template-rows: 1.5fr 1fr;
     .product__header {
       background-color: white;
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0px 50px;
+      font-weight: 500;
+      text-transform: uppercase;
+      .product__category {
+        font-size: 22px;
+      }
+      .product__title {
+        font-size: 44px;
+      }
+      .product__add-to-cart {
+        margin-top: 20px;
+        display: flex;
+        gap: 60px;
+        .product__qty {
+          font-size: 30px;
+          display: flex;
+          gap: 10px;
+          .product__minus {
+            opacity: 0.5;
+          }
+        }
+        .product__price {
+          font-size: 30px;
+        }
+      }
     }
   }
   .product__footer {
@@ -89,7 +121,7 @@ body {
       padding: 50px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 20px;
       .product__question {
         border-bottom: $borderWidth solid $borderColor;
         display: flex;
