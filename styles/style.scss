@@ -1,0 +1,38 @@
+@import "./reset.scss";
+
+body {
+  height: 100vh;
+  background-color: #7d4aa9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.wrapper {
+  max-width: 80%;
+  background-color: black;
+  height: 90%;
+  padding: 40px;
+  box-sizing: border-box; /* 이렇게 하면 화면 사이즈가 변경되어도 영향이 없다. */
+  .grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    height: 100%;
+    /* & > * : 모든 직계 자식이 같은 background color를 가진다. */
+    & > * {
+      background-color: white;
+      border-radius: 15px;
+    }
+    .grid__col {
+      &:first-child {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1.8fr 1fr;
+      }
+    }
+    .grid__img {
+      background-image: url("https://unsplash.it/1000/?random");
+      background-size: cover;
+    }
+  }
+}
