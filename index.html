@@ -7,67 +7,123 @@
   <link rel="stylesheet" href="/styles/style.scss">
   <title>CSS Layout MasterClass</title>
 </head>
-
+<!-- 05.jpg / 세 개의 열과 세 개의 행으로 된 레이아웃. -->
 <body>
-  <div class="wrapper">
-    <div class="grid">
-      <div class="grid__col">
-        <header class="header">
-          <div class="header__top">
-            <span class="header__reviews">4.98</span>
-            <span class="header__label">Best reviews</span>
-          </div>
-          <h1 class="header__title">Grid!</h1>
-          <h3 class="header__subtitle">
-            Css grid is awesome and we love it because we can make many things.
-          </h3>
-        </header>
-        <div class="grid__img"></div>
-        <div class="grid__img"></div>
-      </div>
-      <div class="grid__col">
-        <div class="subgrid">
-          <div class="grid__img"></div>
-          <nav class="nav">
-            <ul>
-              <li class="nav__item">About</li>
-              <li class="nav__item">Solutions</li>
-              <li class="nav__item">Portfolio</li>
-              <li class="nav__item">Blog</li>
-            </ul>
-            <span class="nav_cta">Hire US</span>
-          </nav>
-          <div class="grid__cells">
-            <div class="grid__cell">
-              <span>Recent collabs first</span>
-            </div>
-            <div class="grid__cell">
-              <span>Recent collabs second</span>
-            </div>
-            <span class="grid__cell-cta">More Cases</span>
-          </div>
-          <div class="grid__img"></div>
-        </div>
-        <div class="footer">
-          <div class="footer__header">
-            <span>photo</span>
-            <span>number</span>
-            <span class="footer__first">live preview</span>
-            <span class="footer__icon">🔁</span>
-          </div>
-          <div class="blog-post">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt at molestiae culpa ex facilis corporis
-              dolore distinctio recusandae odio. Sunt vel numquam repudiandae ut, adipisci pariatur consequatur sint
-              ducimus
-              eos.
-            </p>
-          </div>
-        </div>  
+  <div class="bar">
+    <span>Grid!</span>
+  </div>
+  <div class="bar">
+    <span>Projects</span>
+  </div>
+  <main class="main">
+    <nav class="nav">
+      <ul>
+        <!-- li.main__nav-item*4 -->
+        <li class="main__nav-item">Education</li>
+        <li class="main__nav-item">Food</li>
+        <li class="main__nav-item">Meeting People</li>
+        <li class="main__nav-item">Cinema</li>
+      </ul>
+    </nav>
+    <div class="filter">
+      <span class="filter__title">Browse By Client</span>
+      <div class="filter__types">
+        <!-- / 만 div인 이유는, 구분자라는 하나의 독립된 레이아웃 요소로 보기때문에 -->
+        <span class="filter__name">Featured</span>
+        <div class="filter__slash">/</div>
+        <span class="filter__name fliter__name--selected">Gallery</span>
+        <div class="filter__slash">/</div>
+        <span class="filter__name">List</span>
       </div>
     </div>
+    <section class="projects">
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+      <div class="project">
+        <img src="https://unsplash.it/1000/?random" alt="" class="project__img">
+        <span class="project__name">This is my best client!</span>
+      </div>
+    </section>
+  </main>
+  <div class="bar">
+    <span>Projects</span>
   </div>
-
+  <div class="bar">
+    <span>Menu</span>
+  </div>
 </body>
-
 </html>
