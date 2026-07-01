@@ -1,183 +1,66 @@
 @import "./reset.scss";
 
-$green: #01ff00;
-$grey: #d9d9d9;
-$lightGrey: #f0f0f0;
+$white: #dee1d6;
+$green: #5ebc44;
 
-@keyframes top-slide { // top-slide 상위 슬라이드 
-  0%{
-    transform: translateX(-25%);
-  }
-  50%{
-    transform: translateX(0%);
-  }
-  100%{
-    transform: translateX(-25%);
-  }
-}
-
-@keyframes bottom-slide { // bottom-slide 하위 슬라이드 
-  0%{
-    transform: translateX(25%);
-  }
-  50%{
-    transform: translateX(0%);
-  }
-  100%{
-    transform: translateX(25%);
-  }
-}
-
-@keyframes left-slide { // left-slide 좌측 슬라이드 
-  0%{
-    transform: translateY(10000%) rotateZ(90deg);
-  }
-  50%{
-    transform: translateY(0%) rotateZ(90deg);
-  }
-  100%{
-    transform: translateY(10000%) rotateZ(90deg);
-  }
-}
-
-@keyframes right-slide { // right-slide 우측 슬라이드 
-  0%{
-    transform: translateY(-10000%) rotateZ(-90deg);
-  }
-  50%{
-    transform: translateY(0%) rotateZ(-90deg);
-  }
-  100%{
-    transform: translateY(-10000%) rotateZ(-90deg);
-  }
-}
 
 body {
+  background-color: black;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 50px 1fr 50px;
-  grid-template-rows: 50px 1fr 50px;
-}
-
-.bar {
-  background-color: $green;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  span {
-    font-weight: 600;
-    font-size: 18px;
-    position: absolute;
-    width: max-content;
-  }
-  /* div태그 class가 bar인 div에서 첫번째와 마지막 요소 */
-  &:first-child,
-  &:last-child {
-    grid-column: span 3;
-  }
-  &:first-child {
-    span {
-      /* ★★★★ */
-      animation: top-slide 30s linear infinite;
-    }
-  }
-  &:nth-child(2) {
-    span {
-      animation: left-slide 30s linear infinite;
-    }
-  }
-  &:nth-child(4) {
-    span {
-      animation: right-slide 30s linear infinite;
-    }
-  }
-  &:last-child {
-    span {
-      /* ★★★★ */
-      animation: bottom-slide 30s linear infinite;
-    }
-  }
 }
 
-main {
+.poster {
+  background-color: $green;
+  width: 37%;
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  gap: 2px;
-  background-color: black;
-  /* body에서 설정한 전체높이의 100%(100vh) - 100px 위쪽 50px과 아래쪽 50px */
-  height: calc(100vh - 100px);
-  > div { /* > div - main태그안에 div태그들만 선택하여 스타일을 적용하겠다는 의미 */
-    background-color: $grey;
+  grid-template-rows: 30fr 70fr;
+  .top {
+    display: grid;
+    padding: 25px;
+    row-gap: 25px;  /* 행만 */
+    grid-template-columns: 75fr 25fr;
+    .top__box {
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+      font-weight: 600;
+      font-size: 18px;
+      &:last-child {
+        color: white;
+        font-size: 22px;
+        align-self: center;
+      }
+      h1 {
+        font-size: 148px;
+      }
+    }
+  }
+  .bottom {
     overflow: hidden;
-    /* ★★★ */
-    &:has(img) {
-      padding: 10px;
-    }
-    img {
-      width: 100%;
+    .circles {
+      transform: scale(1.1);
+      background-color: black;
+      display: grid;
+      gap: 10px;
       height: 100%;
-      object-fit: cover;
+      grid-template:  repeat(11, 1fr) / repeat(11, 1fr);
+      .circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $green;
+        border-radius: 50%;
+        color: white;
+        font-weight: 600;
+        &:nth-child(3n) { /* 3n - 3의 배수 */
+          background-color: white;
+          color: black;
+        }
+      }
     }
-    &:nth-child(5) {
-      grid-column: span 2;
-    }
-    &:nth-child(7) {
-      grid-column: span 2;
-      grid-row: span 4;
-    }
-    &:nth-child(8),
-    &:nth-child(13) {
-      grid-column: span 4;
-    }
-    &:nth-child(9),
-    &:nth-child(10),
-    &:nth-child(11),
-    &:nth-child(12),
-    &:nth-child(14)  {
-      grid-column: span 2;
-      background-color: $lightGrey;
-    }
-
-    &:nth-child(10),
-    &:nth-child(11),
-    &:nth-child(12),
-    &:nth-child(13),
-    &:nth-child(14) {
-      grid-row: span 2;
-    }
-    &:nth-child(11) {
-      border-bottom-right-radius: 15px;
-    }
-    &:nth-child(12) {
-      border-bottom-left-radius: 15px;
-    }
-    &:nth-child(13) {
-      border-top-right-radius: 15px;
-    }
-    &:nth-child(14) {
-      border-top-left-radius: 15px;
-    }
-  }
-  .title {
-    grid-row: span 2;
-    /* 처음부터 끝까지(1 ~ -1) */
-    // grid-column-start: 1;
-    // grid-column-end: -1;
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 172px;
-    font-weight: 600;
-  }
-  .nav-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    font-size: 18px;
   }
 }
