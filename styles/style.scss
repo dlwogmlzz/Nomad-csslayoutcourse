@@ -1,127 +1,183 @@
 @import "./reset.scss";
 
-$bg: #f0f0f0;
-$accent: #c7c2cc;
-$borderWidth: 2px;
+$green: #01ff00;
+$grey: #d9d9d9;
+$lightGrey: #f0f0f0;
 
-/* ★★animation 부분 */
-@keyframes slide {
-  0% {
-    transform: translateY(-3000%) rotateZ(90deg);
+@keyframes top-slide { // top-slide 상위 슬라이드 
+  0%{
+    transform: translateX(-25%);
   }
-  100% {
-    transform: translateY(calc(0% - 90px)) rotateZ(90deg); /* calc로 텍스트 마지막이 되면 끊기는 느낌을 주는 부분 수정. */
+  50%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes bottom-slide { // bottom-slide 하위 슬라이드 
+  0%{
+    transform: translateX(25%);
+  }
+  50%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(25%);
+  }
+}
+
+@keyframes left-slide { // left-slide 좌측 슬라이드 
+  0%{
+    transform: translateY(10000%) rotateZ(90deg);
+  }
+  50%{
+    transform: translateY(0%) rotateZ(90deg);
+  }
+  100%{
+    transform: translateY(10000%) rotateZ(90deg);
+  }
+}
+
+@keyframes right-slide { // right-slide 우측 슬라이드 
+  0%{
+    transform: translateY(-10000%) rotateZ(-90deg);
+  }
+  50%{
+    transform: translateY(0%) rotateZ(-90deg);
+  }
+  100%{
+    transform: translateY(-10000%) rotateZ(-90deg);
   }
 }
 
 body {
-  display: grid;
-  gap: $borderWidth;
-  background-color: black;
-  grid-template-rows: 10fr 10fr 45fr 35fr;
-  grid-template-columns: 0.3fr repeat(4, 1fr);
-  /* repeat(4, 1fr) = 1fr 1fr 1fr 1fr */
   height: 100vh;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 50px 1fr 50px;
+}
 
-  div {
-    background-color: $bg;
+.bar {
+  background-color: $green;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  span {
+    font-weight: 600;
+    font-size: 18px;
+    position: absolute;
+    width: max-content;
+  }
+  /* div태그 class가 bar인 div에서 첫번째와 마지막 요소 */
+  &:first-child,
+  &:last-child {
+    grid-column: span 3;
+  }
+  &:first-child {
+    span {
+      /* ★★★★ */
+      animation: top-slide 30s linear infinite;
+    }
+  }
+  &:nth-child(2) {
+    span {
+      animation: left-slide 30s linear infinite;
+    }
+  }
+  &:nth-child(4) {
+    span {
+      animation: right-slide 30s linear infinite;
+    }
+  }
+  &:last-child {
+    span {
+      /* ★★★★ */
+      animation: bottom-slide 30s linear infinite;
+    }
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 2px;
+  background-color: black;
+  /* body에서 설정한 전체높이의 100%(100vh) - 100px 위쪽 50px과 아래쪽 50px */
+  height: calc(100vh - 100px);
+  > div { /* > div - main태그안에 div태그들만 선택하여 스타일을 적용하겠다는 의미 */
+    background-color: $grey;
     overflow: hidden;
+    /* ★★★ */
+    &:has(img) {
+      padding: 10px;
+    }
     img {
-      object-fit: cover;
       width: 100%;
       height: 100%;
+      object-fit: cover;
+    }
+    &:nth-child(5) {
+      grid-column: span 2;
+    }
+    &:nth-child(7) {
+      grid-column: span 2;
+      grid-row: span 4;
+    }
+    &:nth-child(8),
+    &:nth-child(13) {
+      grid-column: span 4;
+    }
+    &:nth-child(9),
+    &:nth-child(10),
+    &:nth-child(11),
+    &:nth-child(12),
+    &:nth-child(14)  {
+      grid-column: span 2;
+      background-color: $lightGrey;
     }
 
+    &:nth-child(10),
+    &:nth-child(11),
+    &:nth-child(12),
+    &:nth-child(13),
+    &:nth-child(14) {
+      grid-row: span 2;
+    }
     &:nth-child(11) {
-      grid-column: span 3;
+      border-bottom-right-radius: 15px;
+    }
+    &:nth-child(12) {
+      border-bottom-left-radius: 15px;
+    }
+    &:nth-child(13) {
+      border-top-right-radius: 15px;
+    }
+    &:nth-child(14) {
+      border-top-left-radius: 15px;
     }
   }
-
-  .logo {
-    grid-area: span 2 / span 2;
-    /* row / column */
-    font-size: 198px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .title {
-    grid-column: span 3;
-    font-size: 66px;
-    display: flex;
-    text-transform: uppercase;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .banner {
     grid-row: span 2;
-    background-color: black;
+    /* 처음부터 끝까지(1 ~ -1) */
+    // grid-column-start: 1;
+    // grid-column-end: -1;
+    grid-column: 1 / -1;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    position: relative;
-    span {
-      position: absolute;
-      width: max-content;
-      color: white;
-      font-weight: 600;
-      font-size: 26px;
-
-      /* ★★ */
-      animation: slide 5s linear infinite;
-    }
+    font-size: 172px;
+    font-weight: 600;
   }
   .nav-btn {
     display: flex;
     justify-content: center;
-    padding-left: 20px;
-    flex-direction: column;
-    gap: 5px;
-    .nav-btn__name {
-      font-weight: 600;
-      font-size: 24px;
-      .nav-btn__desc {
-        font-size: 18px;
-      }
-    }
-  }
-  .post {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    /* class가 post안에 class가 post--big인 div */
-    &.post--big {
-      .post__title {
-        font-size: 200px;
-      }
-    }
-    .post__title {
-      font-size: 44px;
-      font-weight: 600;
-    }
-    p {
-      font-size: 18px;
-    }
-  }
-  .featured {
-    background-color: $accent;
-    padding: 50px;
-    display: flex;
-    div {
-      border: $borderWidth solid black;
-      background-color: $bg;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      h3 {
-        text-align: center;
-        font-size: 48px;
-        font-weight: 600;
-      }
-    }
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
   }
 }
